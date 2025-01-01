@@ -1,3 +1,6 @@
+application:
+  title: commerce-cloud-user-management-service
+  version: 1.0.0
 spring:
   webflux:
     base-path: /commerce-cloud
