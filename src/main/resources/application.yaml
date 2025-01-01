@@ -1,0 +1,48 @@
+spring:
+  webflux:
+    base-path: /commerce-cloud
+  application:
+    name: commerce-cloud-user-management-service
+server:
+  port: 5014
+management:
+  health:
+    ping:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /_health
+      exposure:
+        include:
+          - "*"
+    access:
+      default: UNRESTRICTED
+
+### wso-config
+
+wso2:
+  baseUrl: https://localhost:9443/scim2
+  role:
+    api:
+      context: /Roles
+  webclient:
+    ssl:
+      trust-store: "src/main/resources/custom-truststore.jks"
+      trust-store-password: changeit
+      trust-store-type: JKS
+
+### logging
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          reactive:
+            function:
+              client: INFO  # Enable debug logging for WebClient
+    com:
+      commerce-cloud:
+        platform:
+          config:
+            Wso2WebClientConfig: INFO  # Enable debug logging for your custom WebClient config class
+
